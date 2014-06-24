@@ -35,9 +35,10 @@ The first thing you need to do is to clone the tutorial repository by running th
 ```sh
 $ git clone https://github.com/oauth-io/sdk-ios-tutorial.git
 $ cd sdk-ios-tutorial
+$ git checkout step-0 --force
 ```
 
-Once you are in the folder, open the `sdk-ios-tutorial.xcworkspace` (note that we are using the `xcworkspace` here and not the `xcodeproj` as we are using Cocoa Pods to install OAuth.io).
+Once you are in the folder, after having checked out the `step-0` tag, open the `sdk-ios-tutorial.xcworkspace` (note that we are using the `xcworkspace` here and not the `xcodeproj` as we are using Cocoa Pods to install OAuth.io).
 
 **Updating dependencies**
 
