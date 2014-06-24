@@ -77,11 +77,7 @@
     [_state_view setHidden:NO];
     
     
-    [_request_object me:nil success:^(NSDictionary *output, NSString *body, NSHTTPURLResponse *httpResponse) {
-        _name_label.text = [output objectForKey:@"name"];
-        _email_label.text = [output objectForKey:@"email"];
-        [_state_view setHidden:YES];
-    }];
+    //Replace this placeholder with the request code
 }
 
 -(void) logout
