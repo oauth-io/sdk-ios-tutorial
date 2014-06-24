@@ -285,6 +285,7 @@ with the following code, so that your user can be logged in from the cache when 
 ```Objective-C
 -(void) viewDidAppear:(BOOL)animated
 {
+    //This tests if a cache file has been saved for the provider 'facebook'
     if ([_oauthio_modal cacheAvailableForProvider:@"facebook"])
     {
         [self authenticate];
@@ -293,6 +294,24 @@ with the following code, so that your user can be logged in from the cache when 
 ```
 
 Now if you run the application again, you'll see that you are logged in right away.
+
+To clear the cache, find the `clearCache` method and replace the placeholder:
+
+```Objective-C
+-(void) clearCache
+{
+    //Replace this placeholder with code to clear the cache
+}
+```
+
+and replace it with the following code:
+
+```Objective-C
+-(void) clearCache
+{
+    [_oauthio_modal clearCache];
+}
+```
 
 That's it for step 3.
 
