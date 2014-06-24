@@ -19,9 +19,11 @@
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *state_spinner;
 @property (strong, nonatomic) IBOutlet UILabel *login_state_label;
 
-@property OAuthIORequest *request_object;
-@property OAuthIOModal *oauthio_modal;
 @property NSDictionary *config;
+
+
+@property OAuthIOModal *oauthio_modal;
+@property OAuthIORequest *request_object;
 
 @end
 
@@ -33,34 +35,38 @@
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"config" ofType:@"plist"];
     _config = [[NSDictionary alloc] initWithContentsOfFile:path];
+    _login_state_label.text = @"Not connected";
     
     _oauthio_modal = [[OAuthIOModal alloc] initWithKey:[_config objectForKey:@"app_key"] delegate:self];
-    _login_state_label.text = @"Not connected";
 }
 
 -(void) viewDidAppear:(BOOL)animated
 {
     if ([_oauthio_modal cacheAvailableForProvider:@"facebook"])
     {
-        [self login];
+        [self authenticate];
     }
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
--(void) login
+-(void) authenticate
 {
     _state_label.text = @"Logging in via Facebook";
     [_state_view setHidden:NO];
-    NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
-    [options setObject:@"true" forKey:@"cache"];
-    [options setObject:@"true" forKey:@"clear-popup-cache"];
-    [_oauthio_modal showWithProvider:@"facebook" options:options];
     
+    
+    NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
+    //This sets up the cache, so that the user doesn't have to authenticate everytime
+    [options setObject:@"true" forKey:@"cache"];
+    //This prevents the webview from keeping cookies and store the session
+    [options setObject:@"true" forKey:@"clear-popup-cache"];
+    
+    //This launches the popup in a webview above the current view
+    [_oauthio_modal showWithProvider:@"facebook" options:options];
 }
 
 -(void) makeAPICall
@@ -69,6 +75,8 @@
     _email_label.text = @"N/A";
     _state_label.text = @"Fetching your info";
     [_state_view setHidden:NO];
+    
+    
     [_request_object me:nil success:^(NSDictionary *output, NSString *body, NSHTTPURLResponse *httpResponse) {
         _name_label.text = [output objectForKey:@"name"];
         _email_label.text = [output objectForKey:@"email"];
@@ -78,10 +86,11 @@
 
 -(void) logout
 {
-    _request_object = nil;
     _name_label.text = @"N/A";
     _email_label.text = @"N/A";
     _login_state_label.text = @"Not connected";
+    
+    _request_object = nil;
 }
 
 -(void) clearCache
@@ -95,7 +104,7 @@
     {
         if ([_login_switch isOn])
         {
-            [self login];
+            [self authenticate];
         }
         else
         {
@@ -115,19 +124,26 @@
 
 -(void) didReceiveOAuthIOResponse:(OAuthIORequest *)request
 {
+    //This sets up visual responses
     _login_state_label.text = @"Logged in";
     [_state_view setHidden:YES];
     [_login_switch setOn:YES animated:YES];
+    
+    //This sets request_object with the request object returned by the SDK
     _request_object = request;
 }
 
 -(void) didFailWithOAuthIOError:(NSError *)error
 {
+    //This sets up visual responses
     [_state_view setHidden:YES];
     [_login_switch setOn:NO animated:YES];
     _name_label.text = @"N/A";
     _email_label.text = @"N/A";
     _login_state_label.text = @"Not connected";
+    
+    //This logs the error
+    NSLog(@"Error: %@", error.description);
 }
 
 
