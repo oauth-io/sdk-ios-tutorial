@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <OAuthiOS/OAuthiOS.h>
 
-@interface WSViewController : UIViewController
+@interface WSViewController : UIViewController<OAuthIODelegate>
+
+
 
 @end
