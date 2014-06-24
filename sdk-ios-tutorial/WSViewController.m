@@ -42,10 +42,8 @@
 
 -(void) viewDidAppear:(BOOL)animated
 {
-    if ([_oauthio_modal cacheAvailableForProvider:@"facebook"])
-    {
-        [self authenticate];
-    }
+    //Replace this placeholder with code to log the user right away
+    //if his session is cached
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,8 +58,6 @@
     
     
     NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
-    //This sets up the cache, so that the user doesn't have to authenticate everytime
-    [options setObject:@"true" forKey:@"cache"];
     //This prevents the webview from keeping cookies and store the session
     [options setObject:@"true" forKey:@"clear-popup-cache"];
     
@@ -91,7 +87,7 @@
 
 -(void) clearCache
 {
-    [_oauthio_modal clearCache];
+    //Replace this placeholder with code to clear the cache
 }
 
 -(IBAction)buttonPressed:(id)sender
