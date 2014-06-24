@@ -16,11 +16,11 @@ Table of contents
 The tutorial is divided into 5 different steps. Each step is associated with a tag in the [tutorial repository](https://github.com/oauth-io/sdk-ios-tutorial). Once you have passed the `step-0`, in which you need to configure the app with the public key of your OAuth.io app, you will be able to checkout each step at will, so you don't have to do everything if you don't have enough time ;) (though it's a pretty quick tutorial).
 
 
-**Step 0 - Getting the code and configuring the app** (tagged `step-0`)
-**Step 1 - Setting up the OAuthIODelegate** (tagged `step-1`)
-**Step 2 - Authenticating with the OAuthIOModal** (tagged `step-2`)
-**Step 3 - Adding cache support** (tagged `step-3`)
-**Step 4 - Performing a call to the API** (tagged `step-4`)
+- **Step 0 - Getting the code and configuring the app** (tagged `step-0`)
+- **Step 1 - Setting up the OAuthIODelegate** (tagged `step-1`)
+- **Step 2 - Authenticating with the OAuthIOModal** (tagged `step-2`)
+- **Step 3 - Adding cache support** (tagged `step-3`)
+- **Step 4 - Performing a call to the API** (tagged `step-4`)
 
 To the code!
 ============
