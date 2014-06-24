@@ -22,8 +22,7 @@
 @property NSDictionary *config;
 
 
-@property OAuthIOModal *oauthio_modal;
-@property OAuthIORequest *request_object;
+//Add the missing properties here
 
 @end
 
@@ -37,7 +36,7 @@
     _config = [[NSDictionary alloc] initWithContentsOfFile:path];
     _login_state_label.text = @"Not connected";
     
-    _oauthio_modal = [[OAuthIOModal alloc] initWithKey:[_config objectForKey:@"app_key"] delegate:self];
+    //Replace this placeholder with the modal initialization code
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -57,12 +56,7 @@
     [_state_view setHidden:NO];
     
     
-    NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
-    //This prevents the webview from keeping cookies and store the session
-    [options setObject:@"true" forKey:@"clear-popup-cache"];
-    
-    //This launches the popup in a webview above the current view
-    [_oauthio_modal showWithProvider:@"facebook" options:options];
+    //Replace this placeholder with the authentication code
 }
 
 -(void) makeAPICall
@@ -82,7 +76,7 @@
     _email_label.text = @"N/A";
     _login_state_label.text = @"Not connected";
     
-    _request_object = nil;
+    //Replace this placeholder with the logout code
 }
 
 -(void) clearCache
@@ -116,26 +110,12 @@
 
 -(void) didReceiveOAuthIOResponse:(OAuthIORequest *)request
 {
-    //This sets up visual responses
-    _login_state_label.text = @"Logged in";
-    [_state_view setHidden:YES];
-    [_login_switch setOn:YES animated:YES];
-    
-    //This sets request_object with the request object returned by the SDK
-    _request_object = request;
+    //Replace this placeholder with the OAuth.io response handling code
 }
 
 -(void) didFailWithOAuthIOError:(NSError *)error
 {
-    //This sets up visual responses
-    [_state_view setHidden:YES];
-    [_login_switch setOn:NO animated:YES];
-    _name_label.text = @"N/A";
-    _email_label.text = @"N/A";
-    _login_state_label.text = @"Not connected";
-    
-    //This logs the error
-    NSLog(@"Error: %@", error.description);
+    //Replace this placeholder with the OAuth.io error handling code
 }
 
 
