@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <OAuthiOS/OAuthiOS.h>
+//Add the import for OAuth.io here
 
-@interface WSViewController : UIViewController<OAuthIODelegate>
+@interface WSViewController : UIViewController
 
 
 

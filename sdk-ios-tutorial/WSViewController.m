@@ -108,16 +108,6 @@
     }
 }
 
--(void) didReceiveOAuthIOResponse:(OAuthIORequest *)request
-{
-    //Replace this placeholder with the OAuth.io response handling code
-}
-
--(void) didFailWithOAuthIOError:(NSError *)error
-{
-    //Replace this placeholder with the OAuth.io error handling code
-}
-
-
+//Add the delegate methods here
 
 @end
