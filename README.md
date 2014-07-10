@@ -62,8 +62,8 @@ In that file, add a row under the Root. Call it `app_key`, and as value, put you
 
 That's it for step 0.
 
-Step 1 - Authenticating with the OAuth.io modal
------------------------------------------------
+Step 1 - Setting up the OAuthIODelegate
+---------------------------------------
 
 In this step, we'll set the main view controller, `WSViewController` as a `OAuthIODelegate`, which will allow it to control an `OAuthIOModal`, which shows a popup for the user to log in and accept your app's permissions.
 
