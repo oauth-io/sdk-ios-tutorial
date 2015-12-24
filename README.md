@@ -8,7 +8,7 @@ OAuth.io allows you to retrieve access tokens from 100+ providers, and to perfor
 Prerequisite
 ============
 
-Before you start this tutorial, you need to make sure you have [subscribed to OAuth.io](https://oauth.io/register) (the [Bootstrap plan](https://oauth.io/pricing) is free). You need to setup an app in your account with the provider Facebook, configured with a `client_id` and a `client_secret`. Also add the `email` scope to be able to retrieve the user's email in addition to his basic information.
+Before you start this tutorial, you need to make sure you have [subscribed to OAuth.io](https://oauth.io/signup) (the [Bootstrap plan](https://oauth.io/pricing) is free). You need to setup an app in your account with the provider Facebook, configured with a `client_id` and a `client_secret`. Also add the `email` scope to be able to retrieve the user's email in addition to his basic information.
 
 Table of contents
 =================
